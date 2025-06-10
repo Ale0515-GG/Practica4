@@ -21,6 +21,8 @@ jobs:
         with:
           node-version: 18
 
+          
+
       - name: Install dependencies
         run: npm install
 
@@ -32,3 +34,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
+          user_name: Ale0515-GG
+          user_email: mayraalejandragalvangarcia@gmail.com

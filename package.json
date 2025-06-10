@@ -1,7 +1,7 @@
 {
   "name": "practica4desafio2",
   "version": "0.1.0",
-  "homepage": "https://Ale0515-GG.github.io/Practica4.git",
+  "homepage": "https://ale0515-gg.github.io/Practica4/",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",

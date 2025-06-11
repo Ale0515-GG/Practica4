@@ -1,4 +1,4 @@
-# Etapa de build
+# Etapa 1: Build
 FROM node:24 AS build
 
 WORKDIR /app
@@ -8,5 +8,13 @@ RUN npm install
 
 COPY . .
 
-# Genera la carpeta build con la app lista para producción
 RUN npm run build
+
+# Etapa 2: Servir con nginx
+FROM nginx:alpine
+
+COPY --from=build /app/build /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

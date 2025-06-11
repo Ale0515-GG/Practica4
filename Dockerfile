@@ -1,5 +1,5 @@
 # Imagen Node dependiendo de versión instalada
-FROM node:24
+FROM node:24 AS build
 # Establece el directorio de trabajo
 WORKDIR /app
 # Copia los archivos del proyecto

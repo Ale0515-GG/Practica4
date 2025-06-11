@@ -1,12 +1,12 @@
-# Imagen Node dependiendo de versión instalada
+# Etapa de build
 FROM node:24 AS build
-# Establece el directorio de trabajo
+
 WORKDIR /app
-# Copia los archivos del proyecto
+
 COPY package.json package-lock.json ./
 RUN npm install
+
 COPY . .
-# Expone el puerto de React
-EXPOSE 4200
-# Ejecuta la aplicación en desarrollo
-CMD ["npm", "start"]
+
+# Genera la carpeta build con la app lista para producción
+RUN npm run build

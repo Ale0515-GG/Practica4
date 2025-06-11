@@ -1,0 +1,37 @@
+name: Deploy React App to GitHub Pages with Docker
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: docker build -t practica4-react .
+
+      - name: Create container from image
+        run: docker create --name temp-container practica4-react
+
+      - name: Copy build folder from container
+        run: docker cp temp-container:/app/build ./build
+
+      - name: Remove temporary container
+        run: docker rm temp-container
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          user_name: Ale0515-GG
+          user_email: mayraalejandragalvangarcia@gmail.com

@@ -16,11 +16,11 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build Docker image
-        run: docker build -t practica4-react .
+      - name: Build Docker image (build stage only)
+        run: docker build --target build -t practica4-react-build .
 
-      - name: Create container from image
-        run: docker create --name temp-container practica4-react
+      - name: Create container from build image
+        run: docker create --name temp-container practica4-react-build
 
       - name: Copy build folder from container
         run: docker cp temp-container:/app/build ./build
@@ -34,4 +34,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           user_name: Ale0515-GG
-          user_email: mayraalejandragalvangarcia@gmail.com
+          user_email: mayraalejandragarcia@gmail.com

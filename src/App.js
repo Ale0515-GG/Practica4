@@ -14,7 +14,7 @@ function Home() {
 function About() {
   return (
     <h2 style={{ color: '#ff69b4', textAlign: 'center', marginTop: '50px', fontWeight: '600' }}>
-      Acerca de Mayra Alejandra - Estudiante de Ingeniería
+      Acerca de Mayra Alejandra Galvan Garcia - Estudiante de Ingeniería
     </h2>
   );
 }
